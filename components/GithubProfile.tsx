@@ -48,42 +48,48 @@ export default function GithubProfileViewer() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchUserData = async (): Promise<void> => {
-    setLoading(true);
-    setError(null);
-    try {
-      const profileResponse = await fetch(
-        `https://api.github.com/users/${username}`
-      );
-      if (!profileResponse.ok) {
-        throw new Error("User not found");
-      }
-      const profileData = await profileResponse.json();
-
-      const reposResponse = await fetch(
-        `https://api.github.com/users/${username}/repos`
-      );
-      if (!reposResponse.ok) {
-        throw new Error("Repositories not found");
-      }
-      const reposData = await reposResponse.json();
-
-      setUserProfile(profileData);
-      setUserRepo(
-        reposData.map((repo: any) => ({
-          id: repo.id,
-          name: repo.name,
-          description: repo.description,
-          stargazers_count: repo.stargazers_count.toString(),
-          forks_count: repo.forks_count.toString(),
-        }))
-      );
-    } catch (error: any) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
+const fetchUserData = async (): Promise<void> => {
+  setLoading(true);
+  setError(null);
+  try {
+    const profileResponse = await fetch(
+      `https://api.github.com/users/${username}`
+    );
+    if (!profileResponse.ok) {
+      throw new Error("User not found");
     }
-  };
+    const profileData = await profileResponse.json();
+
+    const reposResponse = await fetch(
+      `https://api.github.com/users/${username}/repos`
+    );
+    if (!reposResponse.ok) {
+      throw new Error("Repositories not found");
+    }
+    const reposData = await reposResponse.json();
+
+    setUserProfile(profileData);
+    setUserRepo(
+      reposData.map((repo: UserRepo) => ({
+        id: repo.id,
+        name: repo.name,
+        description: repo.description,
+        stargazers_count: repo.stargazers_count.toString(),
+        forks_count: repo.forks_count.toString(),
+      }))
+    );
+  } catch (error) {
+    if (error instanceof Error) {
+      // Safe access to error.message
+      setError(error.message);
+    } else {
+      // Fallback for unknown error types
+      setError("An unexpected error occurred.");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
