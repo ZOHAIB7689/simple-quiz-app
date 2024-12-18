@@ -3,9 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
-import { FilePenIcon, Ghost, icons, TrashIcon } from "lucide-react";
-import { title } from "process";
-import { Content } from "next/font/google";
+import { FilePenIcon, TrashIcon } from "lucide-react";
 
 export default function Notes() {
   type Note = {
