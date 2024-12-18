@@ -1,7 +1,9 @@
-import GithubProfileViewer from "@/components/GithubProfile";
+import Notes from "@/components/Notes";
+
 
 export default function Home() {
-  return <div><GithubProfileViewer/>
-  </div>;
+  return (<div>
+    <Notes/>
+     </div>);
 
 }
