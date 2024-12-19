@@ -1,9 +1,9 @@
-import Notes from "@/components/Notes";
+import RecipeSearch from "@/components/Recipe";
 
 
 export default function Home() {
   return (<div>
-    <Notes/>
+    <RecipeSearch/>
      </div>);
 
 }
