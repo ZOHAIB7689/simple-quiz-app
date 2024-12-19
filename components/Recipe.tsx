@@ -3,9 +3,9 @@
 import { useState, FormEvent } from "react"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
-import { Card , CardHeader,CardContent,CardTitle } from "./ui/card"
+import { Card , CardContent, } from "./ui/card"
 import Link from "next/link"
-import { icons, SearchIcon } from "lucide-react"
+import {  SearchIcon } from "lucide-react"
 import { ClipLoader } from "react-spinners"
 import Image from "next/image"
 
