@@ -1,9 +1,8 @@
-import RecipeSearch from "@/components/Recipe";
+import WordCounterComponent from "@/components/WordCounter";
 
 
 export default function Home() {
   return (<div>
-    <RecipeSearch/>
-     </div>);
+   <WordCounterComponent/>  </div>);
 
 }
