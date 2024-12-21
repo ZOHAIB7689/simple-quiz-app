@@ -1,8 +1,8 @@
-import WordCounterComponent from "@/components/WordCounter";
+import ImageSlider from "@/components/ImageSlider";
 
 
 export default function Home() {
   return (<div>
-   <WordCounterComponent/>  </div>);
+   <ImageSlider/> </div>);
 
 }
