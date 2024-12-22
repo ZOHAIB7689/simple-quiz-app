@@ -1,8 +1,9 @@
-import ImageSlider from "@/components/ImageSlider";
+import QuizApp from "@/components/QuizApp";
 
 
 export default function Home() {
   return (<div>
-   <ImageSlider/> </div>);
+    <QuizApp/>
+    </div>);
 
 }
